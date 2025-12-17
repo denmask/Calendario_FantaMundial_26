@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FantaMundial 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="topbar">
+      <div class="brand">
+        <span class="brand__dot"></span>
+        <span>FantaMundial 2026</span>
+      </div>
+      <div class="topbar__links">
+        <a href="#classifica-nazionali">Nazionali</a>
+        <a href="#classifica-fantallenatori">Fantallenatori</a>
+        <a href="#turni">Turni</a>
+        <a href="#palmares">Palmarès</a>
+      </div>
+      <div class="topbar__pill">Live dashboard</div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">FantaMundial 2026</p>
+        <h1>Classifiche, sorteggi e palmarès in un colpo d'occhio</h1>
+        <p class="lede">
+          Girone unico da 48 nazionali, 12 fantallenatori in corsa. Statistiche
+          aggiornabili da JSON, look moderno e animazioni leggere.
+        </p>
+        <div class="hero__actions">
+          <a class="button primary" href="#classifica-nazionali"
+            >Vai alle classifiche</a
+          >
+          <a class="button ghost" href="#palmares">Palmarès</a>
+        </div>
+      </div>
+      <div class="hero__badge">
+        <div class="badge__title">Regole chiave</div>
+        <ul>
+          <li>Fase a gironi → ottavi → quarti → semifinale → finale</li>
+          <li>Fantallenatori: massimo 7 partite per chi arriva in finale</li>
+          <li>Punti: vittoria 3, pareggio 1, sconfitta 0</li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel" id="turni">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Percorso torneo</p>
+            <h2>Turni e progressione</h2>
+          </div>
+          <div class="select-wrapper">
+            <label for="stage-select">Seleziona turno</label>
+            <select id="stage-select"></select>
+          </div>
+        </div>
+        <div class="stage-progress" id="stage-progress"></div>
+        <div class="stage-card" id="stage-details"></div>
+      </section>
+
+      <section class="grid">
+        <div class="panel" id="classifica-nazionali">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Girone unico</p>
+              <h2>Classifica 48 Nazionali</h2>
+            </div>
+          </div>
+          <div class="table-wrapper">
+            <table id="teams-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Squadra</th>
+                  <th class="numeric">W</th>
+                  <th class="numeric">L</th>
+                  <th class="numeric">S</th>
+                  <th class="numeric">GF</th>
+                  <th class="numeric">GS</th>
+                  <th class="numeric">DR</th>
+                  <th class="numeric">PT</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel" id="classifica-fantallenatori">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Sorteggio & ranking</p>
+              <h2>Classifica Fantallenatori</h2>
+            </div>
+            <div class="pill success">Max 7 partite</div>
+          </div>
+          <div class="table-wrapper">
+            <table id="managers-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Fantallenatore</th>
+                  <th>Squadra</th>
+                  <th class="numeric">W</th>
+                  <th class="numeric">L</th>
+                  <th class="numeric">S</th>
+                  <th class="numeric">GF</th>
+                  <th class="numeric">GS</th>
+                  <th class="numeric">DR</th>
+                  <th class="numeric">PT</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="palmares">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Hall of fame</p>
+            <h2>Palmarès FantaMundial</h2>
+          </div>
+        </div>
+        <div class="palmares" id="palmares-list"></div>
+      </section>
+
+      <section class="panel info">
+        <div class="panel__header">
+          <div>
+            <p class="eyebrow">Note rapide</p>
+            <h2>Trasparenza e formato</h2>
+          </div>
+        </div>
+        <ul class="notes">
+          <li>
+            I dati provengono da <code>data.json</code>; basta aggiornarlo per
+            riflettere risultati reali.
+          </li>
+          <li>La classifica ordina per punti, differenza reti e gol fatti.</li>
+          <li>
+            Le sezioni sono responsive e ottimizzate per desktop e mobile.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

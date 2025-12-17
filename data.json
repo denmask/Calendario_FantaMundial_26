@@ -1,0 +1,212 @@
+{
+  "worldCupTeams": [
+    { "name": "Algeria", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Arabia Saudita", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Argentina", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Australia", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Austria", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Belgio", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Brasile", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Canada", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Capo Verde", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Colombia", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Costa d'Avorio", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Croazia", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Curacao", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Ecuador", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Egitto", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Fifa Play-Off 1", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Fifa Play-Off 2", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Francia", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Germania", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Ghana", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Giappone", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Giordania", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Haiti", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Inghilterra", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Iran", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Marocco", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Messico", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Norvegia", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Nuova Zelanda", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Olanda", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Panama", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Paraguay", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Portogallo", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Qatar", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Repubblica di Corea", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Scozia", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Senegal", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Spagna", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Stati Uniti", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Sudafrica", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Svizzera", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Tunisia", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "UEFA Play-Off A", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "UEFA Play-Off B", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "UEFA Play-Off C", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "UEFA Play-Off D", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Uruguay", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 },
+    { "name": "Uzbekistan", "wins": 0, "draws": 0, "losses": 0, "gf": 0, "gs": 0, "gd": 0 }
+  ],
+  "fantallenatori": [
+  {
+    "name": "Aidan Conti",
+    "teamName": "Germany",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Alex Beltrame",
+    "teamName": "Brazil",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Andrea Campagnolo",
+    "teamName": "Spain",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Cristian Tartaro",
+    "teamName": "Netherlands",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Denis Mascherin",
+    "teamName": "Morocco",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Federico Burello",
+    "teamName": "Belgium",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Kevin Di Bernardo",
+    "teamName": "Croatia",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Kevin Sandri",
+    "teamName": "Italy",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Lorenzo Moro",
+    "teamName": "England",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Mattia Beltrame",
+    "teamName": "Portugal",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Nicola Marano",
+    "teamName": "Argentina",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  },
+  {
+    "name": "Valentina Pozzi",
+    "teamName": "France",
+    "wins": 0,
+    "draws": 0,
+    "losses": 0,
+    "gf": 0,
+    "gs": 0,
+    "gd": 0
+  }
+  ],
+  "palmares": [
+    { "year": 2022, "winner": "Argentina", "manager": "Kevin Sandri" }
+  ],
+  "stages": [
+    {
+      "id": "group",
+      "label": "Fase a gironi",
+      "maxMatches": 3,
+      "description": "48 squadre in girone unico; i fantallenatori disputano 3 partite per definire il tabellone."
+    },
+    {
+      "id": "roundOf16",
+      "label": "Ottavi di finale",
+      "maxMatches": 1,
+      "description": "Eliminazione diretta, gara secca. Chi perde esce."
+    },
+    {
+      "id": "quarters",
+      "label": "Quarti di finale",
+      "maxMatches": 1,
+      "description": "Ottavi vincenti avanzano; ritmo serrato, tifo altissimo."
+    },
+    {
+      "id": "semis",
+      "label": "Semifinale",
+      "maxMatches": 1,
+      "description": "Penultimo step: solo chi vince va a contendersi il titolo."
+    },
+    {
+      "id": "final",
+      "label": "Finale",
+      "maxMatches": 1,
+      "description": "Ultimo atto: massimo 7 partite giocate complessive per i finalisti."
+    }
+  ],
+  "messages": {
+    "fantallenatoriCap": "Ogni fantallenatore può giocare al massimo 7 partite: 3 di girone + 4 di eliminazione diretta se arriva fino in finale."
+  }
+}
