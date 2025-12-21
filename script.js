@@ -18,51 +18,58 @@ const sortByStandings = (a, b) => {
   return b.gf - a.gf;
 };
 
-const renderTable = (rows, targetBody) => {
+const renderTable = (rows, targetBody, includeTeamName = false) => {
   const fragment = document.createDocumentFragment();
   rows.forEach((row, idx) => {
     const tr = document.createElement("tr");
+    
     const rank = document.createElement("td");
     rank.textContent = idx + 1;
     tr.appendChild(rank);
 
     const name = document.createElement("td");
     name.className = "team-name";
-    name.textContent = row.name ?? row.teamName ?? "—";
+    name.textContent = row.name ?? "—";
     tr.appendChild(name);
 
+    if (includeTeamName) {
+      const teamName = document.createElement("td");
+      teamName.textContent = row.teamName ?? "—";
+      tr.appendChild(teamName);
+    }
+
     const w = document.createElement("td");
-    w.className = "numeric";
+    w.className = "text-right";
     w.textContent = row.wins;
     tr.appendChild(w);
 
     const d = document.createElement("td");
-    d.className = "numeric";
+    d.className = "text-right";
     d.textContent = row.draws;
     tr.appendChild(d);
 
     const l = document.createElement("td");
-    l.className = "numeric";
+    l.className = "text-right";
     l.textContent = row.losses;
     tr.appendChild(l);
 
     const gf = document.createElement("td");
-    gf.className = "numeric";
+    gf.className = "text-right";
     gf.textContent = row.gf;
     tr.appendChild(gf);
 
     const gs = document.createElement("td");
-    gs.className = "numeric";
+    gs.className = "text-right";
     gs.textContent = row.gs;
     tr.appendChild(gs);
 
     const dr = document.createElement("td");
-    dr.className = `numeric delta ${diff(row) >= 0 ? "positive" : "negative"}`;
+    dr.className = `text-right ${diff(row) >= 0 ? 'positive' : 'negative'}`;
     dr.textContent = diff(row);
     tr.appendChild(dr);
 
     const pt = document.createElement("td");
-    pt.className = "numeric";
+    pt.className = "text-right";
     pt.textContent = points(row);
     tr.appendChild(pt);
 
@@ -76,11 +83,11 @@ const renderPalmares = (entries) => {
   palmaresList.innerHTML = "";
   entries.forEach((item) => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "palmares-card";
     card.innerHTML = `
-      <div class="eyebrow">Edizione ${item.year}</div>
-      <h3 style="margin:6px 0 4px;">${item.winner}</h3>
-      <p style="margin:0;color:var(--muted);">Fantallenatore: <strong>${item.manager}</strong></p>
+      <div class="palmares-year">Edizione ${item.year}</div>
+      <div class="palmares-winner">${item.winner}</div>
+      <div class="palmares-manager">Fantallenatore: <strong>${item.manager}</strong></div>
     `;
     palmaresList.appendChild(card);
   });
@@ -89,44 +96,57 @@ const renderPalmares = (entries) => {
 const renderStages = (stages, message) => {
   stageSelect.innerHTML = "";
   renderProgress(stages);
+  
+  // Aggiungi opzione placeholder
+  const placeholderOpt = document.createElement("option");
+  placeholderOpt.value = "";
+  placeholderOpt.textContent = "Seleziona un turno...";
+  placeholderOpt.disabled = true;
+  placeholderOpt.selected = true;
+  stageSelect.appendChild(placeholderOpt);
+  
   stages.forEach((stage, idx) => {
     const opt = document.createElement("option");
     opt.value = stage.id;
     opt.textContent = stage.label;
     stageSelect.appendChild(opt);
-    if (idx === 0) renderStageDetails(stage, message);
   });
+  
   stageSelect.addEventListener("change", (ev) => {
     const stage = stages.find((s) => s.id === ev.target.value);
-    renderStageDetails(stage, message);
+    if (stage) {
+      renderStageDetails(stage, message);
+    }
   });
+  
+  // Mostra il primo turno di default
+  if (stages.length > 0) {
+    stageSelect.value = stages[0].id;
+    renderStageDetails(stages[0], message);
+  }
 };
 
 const renderStageDetails = (stage, message) => {
   stageDetails.innerHTML = `
     <div><strong>${stage.label}</strong></div>
     <div>${stage.description}</div>
-    <div style="color:var(--muted);">Partite massime in turno: ${stage.maxMatches}</div>
-    <div style="color:var(--accent); font-weight:600; margin-top:6px;">${message}</div>
+    <div>Partite massime in turno: ${stage.maxMatches}</div>
+    <div style="color: var(--accent-orange); font-weight: 600;">${message}</div>
   `;
 };
 
 const renderProgress = (stages) => {
   stageProgress.innerHTML = "";
-  const bar = document.createElement("div");
-  bar.className = "progress-bar";
-  stages.forEach((stage, idx) => {
+  stages.forEach((stage) => {
     const node = document.createElement("div");
-    node.className = "progress-node";
+    node.className = "stage-node";
     node.innerHTML = `
-      <div class="dot"></div>
-      <div class="label">${stage.label}</div>
-      <div class="sub">Max ${stage.maxMatches} partite</div>
+      <div class="stage-dot"></div>
+      <div class="stage-label">${stage.label}</div>
+      <div class="stage-sub">Max ${stage.maxMatches} partite</div>
     `;
-    if (idx === stages.length - 1) node.classList.add("last");
-    bar.appendChild(node);
+    stageProgress.appendChild(node);
   });
-  stageProgress.appendChild(bar);
 };
 
 const hydrateTables = (data) => {
@@ -135,11 +155,8 @@ const hydrateTables = (data) => {
     .map((m) => ({ name: m.name, teamName: m.teamName, ...m }))
     .sort(sortByStandings);
 
-  renderTable(teams, teamsTableBody);
-  renderTable(
-    managers.map((m) => ({ ...m, name: `${m.name} · ${m.teamName}` })),
-    managersTableBody
-  );
+  renderTable(teams, teamsTableBody, false);
+  renderTable(managers, managersTableBody, true);
   renderPalmares(data.palmares || []);
   renderStages(data.stages || [], data.messages?.fantallenatoriCap || "");
 };
