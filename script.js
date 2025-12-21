@@ -22,7 +22,7 @@ const renderTable = (rows, targetBody, includeTeamName = false) => {
   const fragment = document.createDocumentFragment();
   rows.forEach((row, idx) => {
     const tr = document.createElement("tr");
-    
+
     const rank = document.createElement("td");
     rank.textContent = idx + 1;
     tr.appendChild(rank);
@@ -64,12 +64,12 @@ const renderTable = (rows, targetBody, includeTeamName = false) => {
     tr.appendChild(gs);
 
     const dr = document.createElement("td");
-    dr.className = `text-right ${diff(row) >= 0 ? 'positive' : 'negative'}`;
+    dr.className = `text-right ${diff(row) >= 0 ? "positive" : "negative"}`;
     dr.textContent = diff(row);
     tr.appendChild(dr);
 
     const pt = document.createElement("td");
-    pt.className = "text-right";
+    pt.className = "text-right points-cell";
     pt.textContent = points(row);
     tr.appendChild(pt);
 
@@ -96,7 +96,7 @@ const renderPalmares = (entries) => {
 const renderStages = (stages, message) => {
   stageSelect.innerHTML = "";
   renderProgress(stages);
-  
+
   // Aggiungi opzione placeholder
   const placeholderOpt = document.createElement("option");
   placeholderOpt.value = "";
@@ -104,21 +104,21 @@ const renderStages = (stages, message) => {
   placeholderOpt.disabled = true;
   placeholderOpt.selected = true;
   stageSelect.appendChild(placeholderOpt);
-  
-  stages.forEach((stage, idx) => {
+
+  stages.forEach((stage) => {
     const opt = document.createElement("option");
     opt.value = stage.id;
     opt.textContent = stage.label;
     stageSelect.appendChild(opt);
   });
-  
+
   stageSelect.addEventListener("change", (ev) => {
     const stage = stages.find((s) => s.id === ev.target.value);
     if (stage) {
       renderStageDetails(stage, message);
     }
   });
-  
+
   // Mostra il primo turno di default
   if (stages.length > 0) {
     stageSelect.value = stages[0].id;
@@ -152,7 +152,7 @@ const renderProgress = (stages) => {
 const hydrateTables = (data) => {
   const teams = data.worldCupTeams.map((t) => ({ ...t })).sort(sortByStandings);
   const managers = data.fantallenatori
-    .map((m) => ({ name: m.name, teamName: m.teamName, ...m }))
+    .map((m) => ({ ...m }))
     .sort(sortByStandings);
 
   renderTable(teams, teamsTableBody, false);
