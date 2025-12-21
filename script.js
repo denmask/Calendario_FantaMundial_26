@@ -64,7 +64,6 @@ const renderTable = (rows, targetBody, includeTeamName = false) => {
     tr.appendChild(gs);
 
     const dr = document.createElement("td");
-    dr.className = `text-right ${diff(row) >= 0 ? "positive" : "negative"}`;
     dr.textContent = diff(row);
     tr.appendChild(dr);
 
