@@ -420,16 +420,6 @@ tbody tr:hover {
   font-weight: 600;
 }
 
-.positive {
-  color: var(--accent-green);
-  font-weight: 600;
-}
-
-.negative {
-  color: #ef4444;
-  font-weight: 600;
-}
-
 .points-cell {
   color: var(--accent-green) !important;
   font-weight: 700 !important;
