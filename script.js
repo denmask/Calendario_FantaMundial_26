@@ -158,7 +158,7 @@ const showToast = (message) => {
 /* GENERAZIONE MESSAGGIO WHATSAPP */
 
 const generateCompleteWhatsAppMessage = () => {
-  if (!currentData) return "";
+  if (!currentData) return;
 
   const teams = currentData.worldCupTeams
     .map((t) => ({ ...t }))
@@ -171,69 +171,61 @@ const generateCompleteWhatsAppMessage = () => {
   let message = "";
 
   // HEADER
-  message += "🏆 *FANTAMUNDIAL 2026 - CLASSIFICHE* 🏆\n\n";
+  message += "FANTAMUNDIAL 2026 - CLASSIFICHE";
 
   // CLASSIFICA FANTALLENATORI
-  message += "📊 *CLASSIFICA FANTALLENATORI*\n";
+  message += "\n\nCLASSIFICA FANTALLENATORI";
   managers.forEach((manager, idx) => {
     const rank = idx + 1;
     const pt = points(manager);
     const gd = diff(manager);
-    message += `${rank}. ${manager.name} (${manager.teamName}) - ${pt}pt GD: ${gd}\n`;
+    message += `\n${rank}. ${manager.name} (${manager.teamName}) - ${pt} PT (GD ${gd})`;
   });
 
   // STATISTICHE FANTALLENATORI (prime 5)
-  message += "\n📈 *STATISTICHE FANTALLENATORI*\n";
+  message += "\n\nSTATISTICHE FANTALLENATORI (prime 5)";
   managers.slice(0, 5).forEach((manager) => {
-    message += `• *${manager.name}* (${manager.teamName}) ${manager.wins}V ${manager.draws}P ${manager.losses}S | ${manager.gf} GF - ${manager.gs} GS | ${points(manager)} PT\n`;
+    message += `\n${manager.name} (${manager.teamName}) - ${manager.wins}V ${manager.draws}P ${manager.losses}S | ${manager.gf} GF - ${manager.gs} GS | ${points(manager)} PT`;
   });
 
-  message += "━━━━━━━━━━━━━━━━━━━━━━\n";
-
-  // TOP 15 NAZIONALI
-  message += "🌍 *TOP 15 NAZIONALI*\n";
-  const topTeams = teams.slice(0, 15);
-  topTeams.forEach((team, idx) => {
+  // CLASSIFICA NAZIONALI (TUTTE)
+  message += "\n\nCLASSIFICA NAZIONALI";
+  teams.forEach((team, idx) => {
     const rank = idx + 1;
     const pt = points(team);
     const gd = diff(team);
-    message += `${rank}. ${team.name} ${pt}pt GD: ${gd}\n`;
+    message += `\n${rank}. ${team.name} - ${pt} PT (GD ${gd})`;
   });
 
-  // QUI RIMUOVO DEL TUTTO LA SEZIONE MARCATORI
-
-  message += "\n━━━━━━━━━━━━━━━━━━━━━━\n";
-
   // INFO TORNEO
-  message += "ℹ️ *INFO TORNEO*\n";
-  message += "• 48 nazionali in girone unico\n";
-  message += "• 12 fantallenatori in gara\n";
-  message += "• Max 7 partite per fantallenatore\n";
+  message += "\n\nINFO TORNEO";
+  message += "\n48 nazionali in girone unico";
+  message += "\n12 fantallenatori in gara";
+  message += "\nMax 7 partite per fantallenatore";
 
   const groupStage =
     currentData.stages && currentData.stages.length > 0
       ? currentData.stages[0].label
       : "Fase a gironi";
-
-  message += `• Fase: ${groupStage}\n`;
+  message += `\nFase: ${groupStage}`;
 
   const today = new Date().toLocaleDateString("it-IT");
-  message += `📅 Aggiornato: ${today}\n\n`;
+  message += `\nAggiornato: ${today}`;
 
   // ALBO D'ORO DAL JSON
   if (currentData.palmares && currentData.palmares.length > 0) {
-    message += "🏅 *ALBO D'ORO FANTAMUNDIAL*\n";
+    message += "\n\nALBO D'ORO FANTAMUNDIAL";
     currentData.palmares.forEach((entry) => {
-      message += `• ${entry.year}: ${entry.winner} (${entry.manager})\n`;
+      message += `\n${entry.year}: ${entry.winner} (${entry.manager})`;
     });
-    message += "\n";
   }
 
   // FOOTER
-  message += "📊 FantaMundial Dashboard";
+  message += "\n\nFantaMundial Dashboard";
 
   return message;
 };
+
 
 
 const shareOnWhatsApp = () => {
