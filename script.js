@@ -4,6 +4,11 @@ const palmaresList = document.querySelector("#palmares-list");
 const stageSelect = document.querySelector("#stage-select");
 const stageDetails = document.querySelector("#stage-details");
 const stageProgress = document.querySelector("#stage-progress");
+const shareAllBtn = document.querySelector("#share-all");
+const toast = document.querySelector("#toast");
+const toastMessage = document.querySelector("#toast-message");
+
+let currentData = null;
 
 const points = (team) => team.wins * 3 + team.draws;
 const diff = (team) => team.gf - team.gs;
@@ -20,6 +25,7 @@ const sortByStandings = (a, b) => {
 
 const renderTable = (rows, targetBody, includeTeamName = false) => {
   const fragment = document.createDocumentFragment();
+
   rows.forEach((row, idx) => {
     const tr = document.createElement("tr");
 
@@ -29,12 +35,12 @@ const renderTable = (rows, targetBody, includeTeamName = false) => {
 
     const name = document.createElement("td");
     name.className = "team-name";
-    name.textContent = row.name ?? "—";
+    name.textContent = row.name ?? "";
     tr.appendChild(name);
 
     if (includeTeamName) {
       const teamName = document.createElement("td");
-      teamName.textContent = row.teamName ?? "—";
+      teamName.textContent = row.teamName ?? "";
       tr.appendChild(teamName);
     }
 
@@ -64,6 +70,7 @@ const renderTable = (rows, targetBody, includeTeamName = false) => {
     tr.appendChild(gs);
 
     const dr = document.createElement("td");
+    dr.className = "text-right";
     dr.textContent = diff(row);
     tr.appendChild(dr);
 
@@ -74,6 +81,7 @@ const renderTable = (rows, targetBody, includeTeamName = false) => {
 
     fragment.appendChild(tr);
   });
+
   targetBody.innerHTML = "";
   targetBody.appendChild(fragment);
 };
@@ -96,7 +104,6 @@ const renderStages = (stages, message) => {
   stageSelect.innerHTML = "";
   renderProgress(stages);
 
-  // Aggiungi opzione placeholder
   const placeholderOpt = document.createElement("option");
   placeholderOpt.value = "";
   placeholderOpt.textContent = "Seleziona un turno...";
@@ -111,14 +118,6 @@ const renderStages = (stages, message) => {
     stageSelect.appendChild(opt);
   });
 
-  stageSelect.addEventListener("change", (ev) => {
-    const stage = stages.find((s) => s.id === ev.target.value);
-    if (stage) {
-      renderStageDetails(stage, message);
-    }
-  });
-
-  // Mostra il primo turno di default
   if (stages.length > 0) {
     stageSelect.value = stages[0].id;
     renderStageDetails(stages[0], message);
@@ -129,8 +128,10 @@ const renderStageDetails = (stage, message) => {
   stageDetails.innerHTML = `
     <div><strong>${stage.label}</strong></div>
     <div>${stage.description}</div>
-    <div>Partite massime in turno: ${stage.maxMatches}</div>
-    <div style="color: var(--accent-orange); font-weight: 600;">${message}</div>
+    <div>Partite massime in turno: <strong>${stage.maxMatches}</strong></div>
+    <div style="color: var(--accent-orange); font-weight: 600;">
+      ${message || ""}
+    </div>
   `;
 };
 
@@ -148,7 +149,109 @@ const renderProgress = (stages) => {
   });
 };
 
+const showToast = (message) => {
+  toastMessage.textContent = message;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2500);
+};
+
+/* GENERAZIONE MESSAGGIO WHATSAPP */
+
+const generateCompleteWhatsAppMessage = () => {
+  if (!currentData) return "";
+
+  const teams = currentData.worldCupTeams
+    .map((t) => ({ ...t }))
+    .sort(sortByStandings);
+
+  const managers = currentData.fantallenatori
+    .map((m) => ({ ...m }))
+    .sort(sortByStandings);
+
+  let message = "";
+
+  // HEADER
+  message += "🏆 *FANTAMUNDIAL 2026 - CLASSIFICHE* 🏆\n\n";
+
+  // CLASSIFICA FANTALLENATORI
+  message += "📊 *CLASSIFICA FANTALLENATORI*\n";
+  managers.forEach((manager, idx) => {
+    const rank = idx + 1;
+    const pt = points(manager);
+    const gd = diff(manager);
+    message += `${rank}. ${manager.name} (${manager.teamName}) - ${pt}pt GD: ${gd}\n`;
+  });
+
+  // STATISTICHE FANTALLENATORI (prime 5)
+  message += "\n📈 *STATISTICHE FANTALLENATORI*\n";
+  managers.slice(0, 5).forEach((manager) => {
+    message += `• *${manager.name}* (${manager.teamName}) ${manager.wins}V ${manager.draws}P ${manager.losses}S | ${manager.gf} GF - ${manager.gs} GS | ${points(manager)} PT\n`;
+  });
+
+  message += "━━━━━━━━━━━━━━━━━━━━━━\n";
+
+  // TOP 15 NAZIONALI
+  message += "🌍 *TOP 15 NAZIONALI*\n";
+  const topTeams = teams.slice(0, 15);
+  topTeams.forEach((team, idx) => {
+    const rank = idx + 1;
+    const pt = points(team);
+    const gd = diff(team);
+    message += `${rank}. ${team.name} ${pt}pt GD: ${gd}\n`;
+  });
+
+  // QUI RIMUOVO DEL TUTTO LA SEZIONE MARCATORI
+
+  message += "\n━━━━━━━━━━━━━━━━━━━━━━\n";
+
+  // INFO TORNEO
+  message += "ℹ️ *INFO TORNEO*\n";
+  message += "• 48 nazionali in girone unico\n";
+  message += "• 12 fantallenatori in gara\n";
+  message += "• Max 7 partite per fantallenatore\n";
+
+  const groupStage =
+    currentData.stages && currentData.stages.length > 0
+      ? currentData.stages[0].label
+      : "Fase a gironi";
+
+  message += `• Fase: ${groupStage}\n`;
+
+  const today = new Date().toLocaleDateString("it-IT");
+  message += `📅 Aggiornato: ${today}\n\n`;
+
+  // ALBO D'ORO DAL JSON
+  if (currentData.palmares && currentData.palmares.length > 0) {
+    message += "🏅 *ALBO D'ORO FANTAMUNDIAL*\n";
+    currentData.palmares.forEach((entry) => {
+      message += `• ${entry.year}: ${entry.winner} (${entry.manager})\n`;
+    });
+    message += "\n";
+  }
+
+  // FOOTER
+  message += "📊 FantaMundial Dashboard";
+
+  return message;
+};
+
+
+const shareOnWhatsApp = () => {
+  const message = generateCompleteWhatsAppMessage();
+  if (!message) return;
+
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+
+  window.open(whatsappUrl, "_blank");
+  showToast("Apertura WhatsApp...");
+};
+
+/* HYDRATE UI */
+
 const hydrateTables = (data) => {
+  currentData = data;
+
   const teams = data.worldCupTeams.map((t) => ({ ...t })).sort(sortByStandings);
   const managers = data.fantallenatori
     .map((m) => ({ ...m }))
@@ -173,3 +276,6 @@ const loadData = async () => {
 };
 
 document.addEventListener("DOMContentLoaded", loadData);
+if (shareAllBtn) {
+  shareAllBtn.addEventListener("click", shareOnWhatsApp);
+}
