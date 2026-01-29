@@ -178,14 +178,14 @@ const generateCompleteWhatsAppMessage = () => {
   managers.forEach((manager, idx) => {
     const rank = idx + 1;
     const pt = points(manager);
-    const gd = diff(manager);
-    message += `\n${rank}. ${manager.name} (${manager.teamName}) - ${pt} PT (GD ${gd})`;
+    const df = diff(manager); // differenza reti
+    message += `\n${rank}. ${manager.name} (${manager.teamName}) - ${pt} PT (DF ${df})`;
   });
 
   // STATISTICHE FANTALLENATORI (tutti)
   message += "\n\nSTATISTICHE FANTALLENATORI";
   managers.forEach((manager) => {
-    message += `\n${manager.name} (${manager.teamName}) - ${manager.wins}V ${manager.draws}P ${manager.losses}S | ${manager.gf} GF - ${manager.gs} GS | ${points(manager)} PT`;
+    message += `\n${manager.name} (${manager.teamName}) - ${manager.wins}V ${manager.draws}P ${manager.losses}S | ${manager.gf} GF - ${manager.gs} GS | DF ${diff(manager)} | ${points(manager)} PT`;
   });
 
   // CLASSIFICA NAZIONALI (TUTTE)
@@ -193,8 +193,8 @@ const generateCompleteWhatsAppMessage = () => {
   teams.forEach((team, idx) => {
     const rank = idx + 1;
     const pt = points(team);
-    const gd = diff(team);
-    message += `\n${rank}. ${team.name} - ${pt} PT (GD ${gd})`;
+    const df = diff(team); // differenza reti
+    message += `\n${rank}. ${team.name} - ${pt} PT (DF ${df})`;
   });
 
   // INFO TORNEO
@@ -203,11 +203,12 @@ const generateCompleteWhatsAppMessage = () => {
   message += "\n12 fantallenatori in gara";
   message += "\nMax 7 partite per fantallenatore";
 
-  const groupStage =
-    currentData.stages && currentData.stages.length > 0
-      ? currentData.stages[0].label
-      : "Fase a gironi";
-  message += `\nFase: ${groupStage}`;
+  // ➜ QUI HO RIMOSSO LA FASE
+  // const groupStage =
+  //   currentData.stages && currentData.stages.length > 0
+  //     ? currentData.stages[0].label
+  //     : "Fase a gironi";
+  // message += `\nFase: ${groupStage}`;
 
   const today = new Date().toLocaleDateString("it-IT");
   message += `\nAggiornato: ${today}`;
@@ -225,8 +226,6 @@ const generateCompleteWhatsAppMessage = () => {
 
   return message;
 };
-
-
 
 
 const shareOnWhatsApp = () => {
