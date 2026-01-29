@@ -20,11 +20,11 @@
     },
     {
       "name": "Argentina",
-      "wins": 1,
-      "draws": 1,
+      "wins": 0,
+      "draws": 0,
       "losses": 0,
-      "gf": 5,
-      "gs": 3,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
