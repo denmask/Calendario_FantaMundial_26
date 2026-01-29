@@ -49,18 +49,18 @@
       "name": "Belgio",
       "wins": 0,
       "draws": 0,
-      "losses": 1,
+      "losses": 0,
       "gf": 0,
-      "gs": 1,
+      "gs": 0,
       "gd": 0
     },
     {
       "name": "Brasile",
       "wins": 0,
       "draws": 0,
-      "losses": 1,
-      "gf": 1,
-      "gs": 2,
+      "losses": 0,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
@@ -102,10 +102,10 @@
     {
       "name": "Croazia",
       "wins": 0,
-      "draws": 1,
+      "draws": 0,
       "losses": 0,
-      "gf": 2,
-      "gs": 2,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
@@ -155,20 +155,20 @@
     },
     {
       "name": "Francia",
-      "wins": 1,
+      "wins": 0,
       "draws": 0,
       "losses": 0,
-      "gf": 2,
+      "gf": 0,
       "gs": 0,
       "gd": 0
     },
     {
       "name": "Germania",
-      "wins": 1,
+      "wins": 0,
       "draws": 0,
-      "losses": 1,
-      "gf": 2,
-      "gs": 3,
+      "losses": 0,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
@@ -211,9 +211,9 @@
       "name": "Inghilterra",
       "wins": 0,
       "draws": 0,
-      "losses": 1,
-      "gf": 1,
-      "gs": 3,
+      "losses": 0,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
@@ -227,10 +227,10 @@
     },
     {
       "name": "Marocco",
-      "wins": 1,
+      "wins": 0,
       "draws": 0,
       "losses": 0,
-      "gf": 1,
+      "gf": 0,
       "gs": 0,
       "gd": 0
     },
@@ -264,10 +264,10 @@
     {
       "name": "Olanda",
       "wins": 0,
-      "draws": 1,
+      "draws": 0,
       "losses": 0,
-      "gf": 3,
-      "gs": 3,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
@@ -290,11 +290,11 @@
     },
     {
       "name": "Portogallo",
-      "wins": 1,
+      "wins": 0,
       "draws": 0,
       "losses": 0,
-      "gf": 3,
-      "gs": 1,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
@@ -336,10 +336,10 @@
     {
       "name": "Spagna",
       "wins": 0,
-      "draws": 1,
+      "draws": 0,
       "losses": 0,
-      "gf": 3,
-      "gs": 3,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
@@ -437,11 +437,11 @@
     {
       "name": "Aidan Conti",
       "teamName": "Germany",
-      "wins": 1,
+      "wins": 0,
       "draws": 0,
-      "losses": 1,
-      "gf": 2,
-      "gs": 3,
+      "losses": 0,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
@@ -449,38 +449,38 @@
       "teamName": "Brazil",
       "wins": 0,
       "draws": 0,
-      "losses": 1,
-      "gf": 1,
-      "gs": 2,
+      "losses": 0,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
       "name": "Andrea Campagnolo",
       "teamName": "Spain",
       "wins": 0,
-      "draws": 1,
+      "draws": 0,
       "losses": 0,
-      "gf": 3,
-      "gs": 3,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
       "name": "Cristian Tartaro",
       "teamName": "Netherlands",
       "wins": 0,
-      "draws": 1,
+      "draws": 0,
       "losses": 0,
-      "gf": 3,
-      "gs": 3,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
       "name": "Denis Mascherin",
       "teamName": "Morocco",
-      "wins": 1,
+      "wins": 0,
       "draws": 0,
       "losses": 0,
-      "gf": 1,
+      "gf": 0,
       "gs": 0,
       "gd": 0
     },
@@ -489,19 +489,19 @@
       "teamName": "Belgium",
       "wins": 0,
       "draws": 0,
-      "losses": 1,
+      "losses": 0,
       "gf": 0,
-      "gs": 1,
+      "gs": 0,
       "gd": 0
     },
     {
       "name": "Kevin Di Bernardo",
       "teamName": "Croatia",
       "wins": 0,
-      "draws": 1,
+      "draws": 0,
       "losses": 0,
-      "gf": 2,
-      "gs": 2,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
@@ -519,38 +519,38 @@
       "teamName": "England",
       "wins": 0,
       "draws": 0,
-      "losses": 1,
-      "gf": 1,
-      "gs": 3,
+      "losses": 0,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
       "name": "Mattia Beltrame",
       "teamName": "Portugal",
-      "wins": 1,
+      "wins": 0,
       "draws": 0,
       "losses": 0,
-      "gf": 3,
-      "gs": 1,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
       "name": "Nicola Marano",
       "teamName": "Argentina",
-      "wins": 1,
-      "draws": 1,
+      "wins": 0,
+      "draws": 0,
       "losses": 0,
-      "gf": 5,
-      "gs": 3,
+      "gf": 0,
+      "gs": 0,
       "gd": 0
     },
     {
       "name": "Valentina Pozzi",
       "teamName": "France",
-      "wins": 1,
+      "wins": 0,
       "draws": 0,
       "losses": 0,
-      "gf": 2,
+      "gf": 0,
       "gs": 0,
       "gd": 0
     }
