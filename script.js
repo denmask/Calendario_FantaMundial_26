@@ -173,7 +173,7 @@ const generateCompleteWhatsAppMessage = () => {
   // HEADER
   message += "FANTAMUNDIAL 2026 - CLASSIFICHE";
 
-  // CLASSIFICA FANTALLENATORI
+  // CLASSIFICA FANTALLENATORI (tutti)
   message += "\n\nCLASSIFICA FANTALLENATORI";
   managers.forEach((manager, idx) => {
     const rank = idx + 1;
@@ -182,9 +182,9 @@ const generateCompleteWhatsAppMessage = () => {
     message += `\n${rank}. ${manager.name} (${manager.teamName}) - ${pt} PT (GD ${gd})`;
   });
 
-  // STATISTICHE FANTALLENATORI (prime 5)
-  message += "\n\nSTATISTICHE FANTALLENATORI (prime 5)";
-  managers.slice(0, 5).forEach((manager) => {
+  // STATISTICHE FANTALLENATORI (tutti)
+  message += "\n\nSTATISTICHE FANTALLENATORI";
+  managers.forEach((manager) => {
     message += `\n${manager.name} (${manager.teamName}) - ${manager.wins}V ${manager.draws}P ${manager.losses}S | ${manager.gf} GF - ${manager.gs} GS | ${points(manager)} PT`;
   });
 
@@ -225,6 +225,7 @@ const generateCompleteWhatsAppMessage = () => {
 
   return message;
 };
+
 
 
 
